@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:via_cep/models/endereco_model.dart';
@@ -11,7 +10,7 @@ class CepRepositoryImpl implements CepRepository{
 
    final result= await Dio().get('https://viacep.com.br/ws/$cep/json/');
    return EnderecoModel.fromMap(result.data);
-    }on DioException catch(e){
+    }on DioException {
       
 
       throw Exception('Error ao buscar cep');
